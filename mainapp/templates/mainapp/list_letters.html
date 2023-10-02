@@ -1,0 +1,7 @@
+{% for l in lets %}
+{% if l.pk == let_selected %}
+<li class="selected">{{l.letter}}</li>
+{% else %}
+<li><a href="{{ l.get_absolute_url }}">{{l.letter}}</a></li>
+{% endif %}
+{% endfor %}

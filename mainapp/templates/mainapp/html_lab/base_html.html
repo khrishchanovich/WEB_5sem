@@ -1,0 +1,91 @@
+{% load static %}
+{% load mainapp_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link type="text/css" href="{% static 'mainapp/css/my_style.css' %}" rel="stylesheet"/>
+    <link rel="shortcut icon" href="{% static 'mainapp/images/main(1).ico' %}" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.google.com/jsapi"></script>
+    <meta name="description" content="Сайт страховой компании">
+    <meta name="keywords" content="IG, Insurance Group, Insurance">
+    <meta name="author" content="Хрищанович Анастасия гр.153504">
+    <script>
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Пользователи', 'Количество'],
+                ['Незарегистрированные', 32.60],
+                ['Зарегистрированные', 67.40],
+            ]);
+            var options = {
+                title: 'Количество пользователей сайта',
+                is3D: true,
+                pieResidueSliceLabel: 'Остальное'
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('air'));
+            chart.draw(data, options);
+        }
+    </script>
+    <style>
+        figure {
+            background: #9acd32;
+            padding: 10px;
+            display: block;
+            float: middle;
+            margin: 0 10px 10px 0;
+            text-align: center;
+        }
+        figcaption {
+            color: #fff;
+        }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="{% url 'home' %}" target="_top">
+                <img src="{% static 'mainapp/images/main(1).ico' %}" alt="Логотип">
+            </a>
+        </h1>
+            <nav>
+                <ul>
+                    {% for m in menu %}
+                        <li>
+                            <a href="{% url m.url_name %}">{{m.title}}</a>
+                        </li>
+                    {% endfor %}
+                    {% if request.user.is_authenticated %}
+                        <li class="last">{{ user.username }} |
+                            <a href="{% url 'logout' %}">Выйти</a>
+                        </li>
+                    {% else %}
+                        <li class="last">
+                            <a href="{% url 'register' %}">Регистрация</a> |
+                            <a href="{% url 'login' %}">Войти</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+    </header>
+    <hr>
+    {% if user.is_authenticated %}
+    <div class="sidenav">
+        <a href="/news" target="_blank">Мировые новости</a>
+    </div>
+    <hr>
+    {% endif %}
+    <div class="content-text">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <hr>
+    <footer>
+        <p>&copy; 2023 Частичное или полное копирование информации с данного сайта для распространения на других
+            ресурсах, в том числе и бумажных, строго запрещено.</p>
+    </footer>
+</body>
+</html>

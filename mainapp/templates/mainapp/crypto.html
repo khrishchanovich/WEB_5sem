@@ -1,0 +1,6 @@
+{% extends "mainapp/html_lab/base_html.html" %}
+
+{% block content %}
+  <h2>Bitcoin exchange rate:</h2>
+  <p>$ {{ rate|floatformat:2 }}</p>
+{% endblock %}

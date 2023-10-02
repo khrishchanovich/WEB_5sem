@@ -1,0 +1,944 @@
+html, body {
+	font-family: 'Arial';
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	color: #444;
+}
+
+h1, h2, h3 {
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+}
+
+/* Селектор элемента, стили для всех параграфов */
+p {
+    line-height: 1;
+    font-kerning: normal;
+    letter-spacing: 0,4px;
+    word-spacing: 0,6px;
+    white-space: pre-line;
+    word-wrap: break-word;
+    text-indent : 2px; /*(по умолчанию) */
+}
+
+.first-letter {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+a {
+    color: #9acd32;
+	text-decoration: none;
+}
+
+a[targer="_top"] {
+    color: #9acd32;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #9acd32;
+	text-decoration: underline;
+}
+
+a:active {
+    color: #381BE0;
+}
+
+a:visited {
+    color: purple;
+}
+
+/* Капитель */
+.small-caps {
+    font-variant: small-caps;
+}
+
+.middle {
+    text-align: center;
+}
+
+/* Настройка цвета фона страницы (основная часть) */
+body {
+    background-color: #f8f8f8;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+ul.child-first li:first-child {
+    font-weight: bold;
+}
+
+ul.child-last li:last-child {
+    color: gray;
+}
+
+ul.child-nth li:nth-child(2) {
+    background-color: #a9c696;
+}
+
+/* Стили для тега <q> с русскими цитатами */
+q[lang="ru"]::before {
+    content: "«"; /* Левая кавычка */
+}
+
+q[lang="ru"]::after {
+    content: "»"; /* Правая кавычка */
+}
+
+/* Стили для тега <q> с английскими цитатами */
+q[lang="en"]::before {
+    content: "“"; /* Левая кавычка */
+}
+
+q[lang="en"]::after {
+    content: "”"; /* Правая кавычка */
+}
+
+.logo {
+    background: url('../images/main(1).ico') no-repeat 10px 5px;
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.2) rotate(15deg);
+}
+
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.column {
+    width: 48%; /* Вы можете настроить ширину колонок по вашему желанию */
+}
+
+/* Если вы хотите добавить отступы между колонками, можете использовать margin или padding */
+.column + .column {
+    margin-left: 4%; /* Например, 4% отступ между колонками */
+}
+
+.news-item {
+    width: calc(33.33% - 20px); /* Разделите на три колонки, учитывая отступы */
+    margin: 0 10px 20px 0;
+    padding: 10px;
+    background: #f0f0f0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.news-item h2 {
+    font-size: 18px;
+}
+
+.news-summary {
+    max-height: 80px; /* Высота блока для краткой информации */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Многоточие для обрезанного текста */
+    white-space: nowrap;
+}
+
+h1.faq-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+details {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+summary {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+.faq-answer {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.faq-steps {
+    list-style-type: decimal;
+    margin-left: 20px;
+}
+
+.list-vacancies {
+    list-style: none;
+    padding: 0;
+}
+
+.vacancy-item {
+    width: 48%; /* Ширина каждого элемента списка */
+    float: left; /* Плавающий блок влево */
+    margin: 0 1% 20px 0; /* Маржин между элементами */
+}
+
+/* Очистка после каждых двух элементов */
+.vacancy-item:nth-child(1) {
+    clear: both;
+}
+
+.vacancy-description {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.small-table {
+    border-collapse: collapse; /* Убираем двойные линии между ячейками */
+    width: 70%; /* Ширина таблицы */
+    margin: 0 auto; /* Выравнивание таблицы по центру страницы */
+}
+
+.small-table, .small-th, .small-td {
+    border: 1px solid #000; /* Устанавливаем границы для таблицы, заголовков и ячеек */
+}
+
+.small-th, .small-td {
+    padding: 10px; /* Внутренний отступ в ячейках */
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+.small-th {
+    background-color: #f0f0f0; /* Фон заголовков */
+}
+
+.small-td:empty {
+    background-color: #ccc; /* Фон пустых ячеек */
+}
+
+.small-caption {
+    text-align: center; /* Выравнивание заголовка таблицы по центру */
+    padding: 10px 0; /* Внутренний отступ заголовка */
+}
+
+.small-tfoot .small-th {
+    background-color: #f0f0f0; /* Фон подвала таблицы */
+}
+
+.small-tr:nth-child(odd) {
+    background-color: #e0e0e0; /* Фон нечетных строк */
+}
+
+.small-th, .small-td:nth-child(odd) {
+    background-color: #f8f8f8; /* Фон нечетных столбцов */
+}
+
+.partner-block {
+    width: 100px; /* Задайте нужную ширину */
+    height: 100px; /* Задайте нужную высоту */
+    background-color: #f0f0f0; /* Цвет фона */
+    border-radius: 50%; /* Скругление углов для круглой формы */
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2); /* Тень */
+    display: flex; /* Используем Flexbox */
+    align-items: center; /* Выравниваем по вертикали */
+    justify-content: center; /* Выравниваем по горизонтали */
+    margin: 10px; /* Внешний отступ между блоками */
+}
+
+.partner-icons {
+    display: flex; /* Используем Flexbox */
+    flex-direction: row; /* Иконки идут вряд (горизонтально) */
+    gap: 10px; /* Расстояние между иконками */
+    align-items: center; /* Выравниваем по центру по вертикали */
+    justify-content: center;
+}
+
+.partner-icons img {
+    max-width: 100%; /* Максимальная ширина изображения в блоке */
+    align-items: center; /* Выравниваем по центру по вертикали */
+    justify-content: center;
+}
+
+@keyframes bannerAnimation {
+    0% {
+        transform: scale(1); /* Начальное состояние объекта */
+    }
+    50% {
+        transform: scale(1.1); /* Середина анимации (увеличение размера) */
+    }
+    100% {
+        transform: scale(1); /* Конечное состояние (вернуть к начальному размеру) */
+    }
+}
+
+.banner-object {
+    animation: bannerAnimation 3s ease-in-out infinite; /* Применение анимации к объекту */
+    width: 300px;
+    height: 300px;
+}
+
+.navigation {
+    position: fixed; /* Фиксированная позиция */
+    top: 0; /* Расположение сверху страницы */
+    left: 0; /* Расположение слева страницы */
+    width: 100%; /* Занимать всю ширину экрана */
+    background-color: #fff; /* Цвет фона навигации */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень */
+    z-index: 1000; /* Уровень наложения для фиксированного элемента */
+}
+
+.last-article-info {
+    position: relative; /* Относительная позиция */
+    top: 0px; /* Расположение сверху страницы (указать желаемую высоту) */
+    right: 0px; /* Расположение справа от страницы (указать желаемую ширину) */
+    background-color: #fff; /* Цвет фона блока */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень */
+    padding: 10px; /* Внутренний отступ для содержимого блока */
+    z-index: 999; /* Уровень наложения для фиксированного элемента */
+}
+
+.agent-item {
+    width: calc(33.33% - 20px); /* 33.33% ширины с отступами между элементами */
+    margin-right: 20px; /* Отступ между элементами */
+    margin-bottom: 20px; /* Отступ снизу */
+    background-color: #f0f0f0; /* Цвет фона */
+    padding: 20px; /* Внутренний отступ */
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2); /* Тень */
+}
+
+.agent-info {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+}
+
+.agent-photo {
+    flex: 0 0 200px; /* Фиксированная ширина для фото */
+    margin-right: 20px; /* Отступ между фото и информацией */
+}
+
+.agent-photo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.agent-details {
+    flex: 1; /* Занимает оставшееся пространство */
+}
+
+.agent-phone, .agent-email {
+    margin: 0;
+}
+
+.agent-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.agent-full-name {
+    font-size: 16px;
+    color: #555;
+}
+
+.agent-description {
+    margin-top: 10px; /* Отступ между информацией и описанием */
+}
+
+/* Настройка шрифтов для кнопок */
+input[type="button"] {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    padding: 10px;
+	min-width: 100px;
+	background: #a9c696;
+	color: #fff;
+	text-decoration: none;
+}
+
+/* Настройка шрифтов для текста отзыва */
+p.feedback-text {
+    font-family: 'Times New Roman', serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* Настройка полосы на всю ширину экрана */
+.full-width {
+    width: 100%;
+}
+
+/* Стили для активных промокодов */
+.list-articles.active {
+    border: 2px solid #4CAF50; /* Зеленая рамка для активных промокодов */
+    background-color: #E9F7EF; /* Фоновый цвет для активных промокодов */
+}
+
+/* Стили для промокодов в архиве */
+.list-articles.archive {
+    border: 2px solid #F44336; /* Красная рамка для промокодов в архиве */
+    background-color: #FFE9E7; /* Фоновый цвет для промокодов в архиве */
+}
+
+/* Стили для панели промокода */
+.article-panel {
+    padding: 10px; /* Внутренний отступ для панели */
+    border-bottom: 1px solid #ccc; /* Горизонтальная линия разделения */
+}
+
+.article-panel .first {
+    font-weight: bold; /* Задать жирный шрифт для "Действует" или "В архиве" */
+}
+
+/* Стили для заголовков промокодов */
+.list-articles h2 {
+    font-size: 18px; /* Размер шрифта для заголовков */
+    margin-top: 10px; /* Внешний отступ сверху для заголовков */
+}
+
+/* Стили для описания промокодов */
+.list-articles p {
+    margin-top: 5px; /* Внешний отступ сверху для абзацев описания */
+}
+
+/* styles.css */
+
+/* Стили для обертки */
+.wrapper {
+    position: relative;
+    border: 2px solid #FFD700;
+    padding: 20px;
+    background-image: url('/static/mainapp/images/background.png');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    z-index: 999; /* Уровень наложения для фиксированного элемента */
+}
+
+/* Стили для заголовка */
+.wrapper h1 {
+    background: linear-gradient(to bottom, #FFD700, #FFA500);
+    font-size: 32px;
+}
+
+/* Стили для разделителя */
+.wrapper hr {
+    border-color: #FFD700;
+}
+
+/* Стили для фигуры */
+.figure {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+/* Стили для заголовка фигуры */
+.figure h4 {
+    font-size: 24px;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Стили для большого заголовка */
+.figure h1 {
+    font-size: 48px;
+    color: #333;
+    text-align: center;
+    margin-top: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Стили для малого заголовка */
+.figure h4 {
+    font-size: 18px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Стили для текста слева и справа */
+.text-left,
+.text-right {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Стили для выравнивания текста */
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Стили для второго уровня заголовков */
+.figure h2 {
+    font-size: 28px;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+}
+
+/* Стили для подчеркивания */
+.figure u {
+    text-decoration: underline;
+}
+
+/* Стили для ссылки на скачивание сертификата */
+.download-link {
+    display: inline-block;
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #FFD700;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.download-link:hover {
+    background-color: #FFA500;
+}
+
+/* Стили для видео */
+iframe {
+    width: 100%; /* Чтобы видео занимало всю ширину контейнера */
+    border: 2px solid #007bff; /* Цвет рамки */
+}
+
+/* Стили для подписи к видео */
+figcaption {
+    font-size: 18px;
+    color: #333; /* Цвет текста */
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Стили для аудио */
+audio {
+    width: 100%; /* Чтобы аудио занимало всю ширину контейнера */
+    background-color: #f7f7f7; /* Цвет фона */
+    padding: 10px; /* Поля вокруг аудио элемента */
+    border: 1px solid #ccc; /* Цвет рамки */
+    margin-top: 10px;
+}
+
+/* Стили для ссылки скачивания аудио */
+audio a {
+    text-decoration: none;
+    color: #007bff; /* Цвет ссылки */
+    margin-left: 10px;
+}
+
+p.link-read-post {
+	text-align: right;
+}
+
+p.link-read-post a {
+	padding: 10px;
+	min-width: 100px;
+	background: #a9c696;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 5px;
+
+}
+
+div.article-panel {
+    background: #eee;
+    padding: 5px 10px 5px 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    color: #555;
+}
+
+div.article-panel p.first {
+    margin: 0;
+    float: left;
+}
+
+div.article-panel p.last {
+    margin: 0;
+    float: right;
+}
+
+ul.list-articles {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+ul.list-articles li {
+	border-bottom: 1px solid #ccc;
+}
+
+.table-page {
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+}
+
+.table-page tr {height: 100%;}
+
+.clear {clear: both;}
+
+/* Настройка верхнего меню */
+.header {
+	background: #b2c2d0;
+	height: 60px;
+}
+
+ul.mainmenu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 60px;
+	color: #000000;
+	font-size: 15px;
+	overflow: hidden;
+}
+ul.mainmenu li {
+	float: left;
+	margin: 18px 40px 0 30px;
+}
+ul.mainmenu div.logo {margin: -18px 0px 0 0px;}
+ul.mainmenu li.last {float: right;}
+
+ul.mainmenu li a {
+	color: #000000;
+	text-decoration: none;
+}
+ul.mainmenu li a:hover {
+	color: #829cb3;
+}
+
+.panelitems {
+	text-align: center;
+}
+
+ul.langitem {
+	list-style: none;
+	display: inline-block;
+	margin: 30px;
+	padding: 0;
+	max-width: 300px
+}
+ul.langitem li {
+	margin: 10px 0 0 0;
+	width: 100%;
+}
+ul.langitem li.image {
+	margin: 0;
+	text-align: center;
+	width: 100%;
+	height: 250px;
+	overflow: hidden;
+}
+ul.langitem li.descr {
+	color: #777;
+	height: 170px;
+	overflow: hidden;
+}
+ul.langitem li a {
+	color: #fcd073;
+	text-decoration: none;
+	font-size: 20px;
+}
+ul.langitem li a:hover {
+	color: #FDA83D;
+}
+div.button {
+	background: #3F4137;
+	max-width: 200px;
+	margin: 0 auto;
+	padding: 5px 20px 5px 20px;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
+.table-content {
+	width: 100%;
+	min-height: 100%;
+	height: 100%;
+}
+
+.left-chapters {
+	margin: 0;
+	background: #eee;
+	border-right: 1px solid #ccc;
+	min-height: 100%;
+	padding-top: 30px;
+}
+
+.left-chapters ul {
+	width: 230px;
+	min-height: 100%;
+	margin: 0;
+	padding: 20px 10px 10px 20px;
+	list-style: none;
+	font-size: 15px;
+}
+.left-chapters ul li {
+	margin: 30px 0 0 0;
+	color: #999;
+}
+.left-chapters ul li.selected {color: #829cb3; }
+.left-chapters ul li a {
+	color: #444;
+	text-decoration: none;
+}
+.left-chapters ul li a:hover { color: #829cb3; }
+.left-chapters ul li.share {margin: 60px 0 0 0;}
+.left-chapters ul li.share p {margin: 30px 0 30px 0;}
+.left-chapters ul li.share a {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	margin: 0 20px 0 0;
+}
+.left-chapters ul li.share a.share-yt {
+	width: 100%;
+	height: 30px;
+	background: url('../images/share_yt.png') no-repeat 0 0
+}
+.left-chapters ul li.share a.share-yt:hover {
+	width: 100%;
+	height: 30px;
+	background: url('../images/share_yt.png') no-repeat 0 -30px
+}
+
+.content {
+	padding: 40px 20px 20px 40px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+ul.breadcrumbs {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 20px;
+	font-family: Arial;
+}
+ul.breadcrumbs li {
+	display: inline-block;
+}
+ul.breadcrumbs li a {
+	color: #0059b2;
+	text-decoration: none;
+}
+ul.breadcrumbs li a:hover { color: #CC0000; }
+ul.breadcrumbs li:after{
+	padding: 0 10px 0 10px;
+	content: "\2192";
+}
+ul.breadcrumbs li.last:after {content: "";}
+
+ul.control {
+	margin: 0;
+	padding: 60px 0 0 0;
+	list-style: none;
+	font-family: Arial;
+	font-size: 18px;
+	width: 100%;
+}
+ul.control li {	float: left; padding: 0 0 0 10px;}
+ul.control li.first:before {content: "\2190"; padding: 0 10px 0 0;}
+ul.control li.last {float: right; padding: 0 40px 0 0;}
+ul.control li.last:after {content: "\2192"; padding: 0 0 0 10px;}
+ul.control li a { color: #0059b2; text-decoration: none; }
+ul.control li a:hover { color: #CC0000; }
+
+ul.content-table {
+	margin: 0;
+	padding: 60px 0 0 30px;
+	list-style: none;
+	font-family: Arial;
+	font-size: 28px;
+}
+ul.content-table li {
+	margin: 0 0 40px 0;
+}
+ul.content-table li a {
+	color: #BB5715;
+	text-decoration: none;
+}
+ul.content-table li a:hover {color: #F0711C;}
+
+.content-text {
+	margin: 60px 0 0 30px;
+	color: #000;
+	font-size: 20px;
+	font-family: Arial;
+}
+.content-text h1 {font-size: 32px;}
+
+ul.lang-list {
+	list-style: none;
+	margin: 0;
+	padding: 14px 0 0 0;
+	background: #3F4137;
+	width: 100%;
+	height: 50px;
+	border-top: 1px solid #959A82;
+	box-sizing: border-box;
+	font-size: 18px;
+	font-family: Arial;
+}
+ul.lang-list li {
+	display: inline-block;
+	margin-left: 40px;
+}
+ul.lang-list li.selected {color: #fdc073; border-bottom: 1px solid #fdc073;}
+ul.lang-list li a {
+	color: #eee;
+	text-decoration: none;
+}
+ul.lang-list li a:hover {color: #fdc073;}
+
+.topic-subject .topic-line {
+	border-bottom: 1px solid #CC0000;
+	margin-top: -16px;
+}
+
+.topic-subject .topic-text {
+	display: inline-block;
+	font-size: 28px;
+	color: #777;
+	padding: 0 10px 0 10px;
+	margin-left: 30px;
+	background: #fff;
+	font-family: Arial;
+}
+
+.list-topic {
+	margin: 40px 0 60px 0;
+	font-family: Arial;
+}
+.list-topic p {
+	margin: 0;
+	font-size: 28px;
+}
+.list-topic ol {
+	columns: 2;
+	-webkit-columns: 2;
+	column-gap: 40px;
+}
+.list-topic ol li {
+	display: list-item;
+	margin: 10px 10px 0 0px;
+	padding: 0 0 0 10px;
+}
+.list-topic ol li a {
+	color: #0059b2;
+	text-decoration: none;
+}
+.list-topic ol li a:hover {color: #CC0000;}
+
+.highlight {
+	max-width: 350px;
+	padding: 0 10px 0 10px;
+	margin: 0;
+	overflow: auto;
+	overflow-y: hidden;
+	background: #f0f0f0;
+}
+.highlight p { margin: 0; }
+.highlight .block {
+	width: 100%;
+	margin: 0;
+}
+.highlight .block p { margin: 0; }
+
+.quote {
+	background: url('../images/blockquote.png') no-repeat 0 10px;
+	padding: 5px 5px 5px 70px;
+	font-family: Arial;
+	font-style: italic;
+}
+
+#footer {
+	box-sizing: border-box;
+
+	background: #b2c2d0;
+	padding: 5px;
+	color: #000000;
+	font-size: 14px;
+	font-family: Arial;
+	text-align: left;
+	overflow: hidden;
+}
+#footer a {
+	text-decoration: underline;
+	color: #aaa;
+}
+
+.form-input {
+    width: 300px;
+    font-size: 16px;
+}
+
+.form-label {
+    display: inline-block;
+    min-width: 150px;
+    vertical-align: top;
+}
+
+.form-error ul {
+    list-style: none;
+    padding: 0;
+    color: #CC0000;
+}
+
+.form-button {
+    min-width: 200px;
+    font-size: 16px;
+}
+
+.list-pages {
+	text-align: center;
+	margin: 0 0 20px 0;
+}
+.list-pages ul {
+	margin: 20px 0 0 0;
+	padding: 0;
+	list-style: none;
+}
+.list-pages ul li {
+	display: inline-block;
+	margin: 0 20px 0 0;
+}
+.list-pages a {
+	color: #000;
+	font-size: 24px;
+	text-decoration: none;
+}
+.list-pages .page-num, .page-num-selected {
+	display: inline-block;
+	width: 60px;
+	height: 44px;
+	padding: 16px 0 0 0;
+	border: 1px solid #d0d0d0;
+	border-radius: 30px;
+}
+.list-pages .page-num:hover {
+	box-shadow: 3px 3px 1px #d0d0d0;
+}
+.list-pages .page-num-selected {
+	border: none;
+	color: #000;
+	font-size: 20px;
+}
+.list-pages .page-num-selected:hover {
+	box-shadow: none;
+}

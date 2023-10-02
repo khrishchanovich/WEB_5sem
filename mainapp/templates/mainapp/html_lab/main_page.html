@@ -1,0 +1,83 @@
+{% extends "mainapp/base.html" %}
+{% block content %}
+ {% if exclude_navigation %}
+    <div align="middle">
+        <h1>{{ title }}</h1>
+        <hr>
+
+        <h2>Баннер нашей компании</h2>
+        <hr>
+        <q lang="en">I love insurance because it brings security into my life</q>
+        <br>
+        <p>{{ current_timezone }}</p>
+        <q lang="ru">Страхование — это парашют, если у Вас его нет в нужный момент, больше он Вам не понадобится.</q>
+        <p></p>
+        <div>
+            Угадывая будущее,<br>
+            Устраняли бедствия,<br>
+            Впереди на шаг идущие<br>
+            Все учли последствия.<br>
+            В трудную минуту<br>
+            Для каждого спаситель,<br>
+            Протянута в беде рука —<br>
+            Все это про страховщика!<br>
+        </div>
+        <img class="banner-object" src="static/mainapp/images/banner.jpg" alt="Баннер нашей компании">
+        <p><a href="/information">О компании</a></p>
+        <p><a href="/vacancy">Доступные вакансии</a></p>
+        <hr>
+        <h2>Последняя опубликованная статья</h2>
+        <hr>
+    </div>
+    {% for p in posts %}
+        {% if forloop.last %}
+        <div class="last-article-info">
+            <ul>
+                <li>
+                    <form action="{{ p.get_absolute_url }}" target="_top">
+                        <article>
+            	            <p class="first">Категория: {{ p.cat }}</p>
+                            <p class="last">Дата: {{ p.time_update|date:"d-m-Y H:i:s" }}</p>
+                        </article>
+                        <h2>{{ p.title }}</h2>
+                        {% autoescape on %}
+	                    {{ p.description|linebreaks|truncatewords:50 }}
+	                    {% endautoescape %}
+			            Тариф: {{ p.rate }}
+                       <p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать информацию</a></p>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        {% endif %}
+    {% endfor %}
+    <div class="middle">
+        <hr>
+        <h2>Наши спонсоры</h2>
+        <hr>
+        <div class="partner-icons">
+        <a href="https://belarusbank.by/ru/fizicheskim_licam/31886/internet_banking" class="partner-block">
+            <img src="static/mainapp/images/belarusbank_logo.jpg" width="60" height="50" alt="БеларусБанк">
+        </a>
+        <a href="https://www.belinvestbank.by/individual" class="partner-block">
+            <img src="static/mainapp/images/belinvest_logo.png" width="60" height="50" alt="БелинвестБанк">
+        </a>
+        <a href="https://www.alfabank.by/" class="partner-block">
+            <img src="static/mainapp/images/alfa_log.png" width="60" height="50" alt="Альфа-Банк">
+        </a>
+        </div>
+    </div>
+    <div itemscope itemtype="http://schema.org/Movie">
+        <h1>Аватар</h1>
+        <span>Режиссер: Джеймс Кэмерон (род. 16 августа 1954 г.)</span>
+        <span itemprop="genre">Фантастика</span>
+        <a href="/../movies/avatar-theatrical-trailer.html" itemprop="trailer">Трейлер</a>
+    </div>
+    <hr>
+    <code>
+        import django<br>
+        <br>
+        print('I don't know what to write here')
+    </code>
+{% endif %}
+{% endblock %}

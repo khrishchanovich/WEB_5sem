@@ -1,0 +1,16 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+    <ul class="list-vacancies">
+        {% for p in posts %}
+            <li class="vacancy-item">
+                <h2>{{ p.title }}</h2>
+                <div class="vacancy-description">
+                    {% autoescape on %}
+                    {{ p.description|linebreaks }}
+                    {% endautoescape %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

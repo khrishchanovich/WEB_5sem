@@ -1,0 +1,11 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<h1>{{post.title}}</h1>
+
+{% autoescape off %}
+{{post.content|linebreaks}}
+{% endautoescape %}
+
+{% endblock %}
+

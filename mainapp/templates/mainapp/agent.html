@@ -1,0 +1,30 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+
+<ul class="list-articles">
+    {% for a in agents %}
+    <li class="agent-item">
+        <div class="agent-info">
+            <div class="agent-photo">
+                {% if a.photo %}
+                    <img class="img-article-left thumb" src="{{ a.photo.url }}" alt="{{ a.last_name }} Photo">
+                {% endif %}
+            </div>
+            <div class="agent-details">
+                <p class="agent-phone">Номер телефона: {{ a.phone_number }}</p>
+                <p class="agent-email">Почта: {{ a.email }}</p>
+                <h2 class="agent-name">{{ a.last_name}}</h2>
+                <h3 class="agent-full-name">{{ a.name}} {{ a.middle_name }}</h3>
+            </div>
+        </div>
+        <div class="agent-description">
+            <p>{{ a.income }}</p>
+            {% if a.description %}
+                <p>{{ a.description }}</p>
+            {% endif %}
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

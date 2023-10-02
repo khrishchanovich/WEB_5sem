@@ -1,0 +1,81 @@
+{% extends "mainapp/base.html" %}
+{% load static %}
+{% block content %}
+    <div align="middle">
+        <h1>{{ title }}</h1>
+        <hr>
+        <h2>Информация о компании</h2>
+        <hr>
+        <figure class="logo"></figure>
+        <div align="left">
+            <ol>
+                <li><b>Год создания нашей компании:</b> 2022</li>
+                <li><b>Виды страхования, которые мы предлагаем: </b>
+                    <a href="/ins_type" target="_top">прочитать подробнее тут</a></li>
+                <li><b>Заключение договора:</b> наша форма, с помощью которой вы можете заключить договор
+                    {% if user.is_authenticated %}
+                        <a href="/contract" target="_top">ссылка на форму</a>
+                    {% else %}
+                        <a href="/register" target="_top">ссылка на форму</a></li>
+                    {% endif %}
+                <li><b>Адреса нашей компании и контактные данные агентов: </b>
+                    <a href="/address" target="_top">просмотреть тут</a></li>
+                <li><a href="#sertificate">Если Вас интересует наш сертификат</a></li>
+            </ol>
+        </div>
+        <hr>
+        <h2>О чем важно задуматься?</h2>
+        <hr>
+        <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/LOBZQoaY6Tg?si=HbifQ0Si9lsbir_L"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+        </iframe>
+        <figure>
+            <figcaption>Роль страхования в финансовом планировании</figcaption>
+            <br>
+            <audio controls src="{% static 'mainapp/audio/182.mp3' %}">
+            <a href="/media/cc0-audio/t-rex-roar.mp3"> Download audio </a>
+            </audio>
+        </figure>
+        <hr>
+        <h2>Круговая диаграмма</h2>
+        <hr>
+        <div id="air" style="width: 500px; height: 400px;"></div>
+        <hr>
+    </div>
+    <div align="middle">
+    <table class="small-table">
+        <caption class="small-caption"><h2>Реквизиты</h2></caption>
+        <thead>
+            <tr class="small-tr">
+                <th class="small-th">Реквизит</th><th class="small-th">Данные</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="small-tr">
+                <td class="small-td">Название страховой компании:</td><td class="small-td">
+                    <abbr title="Insurance Group">IG</abbr>-название компании
+                </td>
+            </tr>
+            <tr class="small-tr">
+                <td class="small-td">Лицензия:</td><td class="small-td">лицензия №12345, выдана агенством по лицензированию страховых компаний</td>
+            </tr>
+            <tr class="small-tr">
+                <td class="small-td">Основание деятельности:</td><td class="small-td">зарегистрировано в Министерстве Финансов</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="small-tr">
+                <th colspan="3" class="small-th">Актуальная информация на 2023 год</th>
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+    <hr>
+    <div align="middle">
+        <h2><a id="sertificate"></a><a href="/sertificate" target="_top">Ссылка на сертификат</a></h2>
+    </div>
+{% endblock %}

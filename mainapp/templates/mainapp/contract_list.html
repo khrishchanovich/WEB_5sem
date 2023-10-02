@@ -1,0 +1,25 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<ul class="list-articles">
+    {% for c in contract_list %}
+    <li>
+        <div class="article-panel">
+<!--            <p class="first">Категория: {{a.phone_number}}</p>-->
+            <p class="last">Дата залючение: {{c.time_create}}</p>
+        </div>
+
+        <h2>{{c.cat}}</h2>
+        <div>
+            {{c.name}}
+            {{c.last_name}}
+            {{c.middle_name}}
+        </div>
+        <br>
+        {{c.ins_object}}
+        <p>Первоначальный взнос: {{c.initial_payment}}</p>
+        <div class="clear"></div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

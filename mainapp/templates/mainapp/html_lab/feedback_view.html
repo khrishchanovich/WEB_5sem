@@ -1,0 +1,27 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    {% if not user.is_authenticated %}
+        <h3>Чтобы оставить отзыв, необходимо
+            <a href="/register" target="_top"><input type="button" value="зарегистрироваться"></a> |
+            <a href="/login" target="_top"><input type="button" value="войти"></a>
+        </h3>
+    {% elif user.is_authenticated %}
+        <a href="/feedback_form" target="_top"><input type="button" value="Отправить отзыв"></a>
+    {% endif %}
+    <hr>
+    {% for f in feedback_list %}
+        <ul class="list-articles full-width">
+            <li>
+                <div class="article-panel">
+                    <p class="last">Дата создания: {{ f.time_create }}</p>
+                </div>
+                <h2>{{ f.rating }}/5</h2>
+                {{ f.user }}
+                <p class="feedback-text">{{ f.feedback }}</p>
+                <div class="clear"></div>
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}

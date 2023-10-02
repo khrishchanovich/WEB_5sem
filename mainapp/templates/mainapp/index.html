@@ -1,0 +1,23 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<ul class="list-articles">
+	{% for p in posts %}
+			<li>
+				<p class="first small-caps">Категория: {{p.cat}}</p>
+				<p class="last">Дата: {{p.time_update|date:"d-m-Y H:i:s"}}</p>
+
+				<h2>{{p.title}}</h2>
+				<article class="news-item">
+				<p class="news-summary">
+					{% autoescape on %}
+					{{p.description|linebreaks|truncatewords:50}}
+					{% endautoescape %}
+				</p>
+				</article>
+				<p class="small-caps first-letter">Тариф: {{p.rate}}</p>
+				<p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать информацию</a></p>
+			</li>
+	{% endfor %}
+</ul>
+{% endblock %}

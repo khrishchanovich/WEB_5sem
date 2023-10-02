@@ -1,0 +1,18 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<ul class="list-articles">
+<h1>Виды страхования</h1>
+
+    {% for i in ins_types %}
+    <li><a href="{% url 'detail' id=i.id %}">{{ i.title }}</a></li>
+    <p class="link-read-post"><a href="{% url 'update' id=i.id %}">Изменить</a></p>
+    <p>{{i.description}}</p>
+    <p class="link-read-post"><a href="{% url 'delete' id=i.id %}">Удалить</a></p>
+    {% empty %}
+    <li>Нет доступынх видов страхования</li>
+    {% endfor %}
+    <p>---</p>
+    <p class="link-read-post"><a href="{% url 'create' %}">Cоздать</a></p>
+</ul>
+{% endblock %}

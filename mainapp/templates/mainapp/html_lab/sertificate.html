@@ -1,0 +1,31 @@
+{% extends "mainapp/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>{{ title }}</h1>
+        <hr>
+    </div>
+    <figure class="figure">
+        <div class="wrapper">
+            <h4 class="title-small">Сертификат от Министерства Финансов</h4>
+            <hr class="divider">
+            <h1 class="title-large">Cвидетельство</h1>
+            <h4 class="title-small">о внесении сведений</h4>
+            <div class="location">
+                <p class="text-left">Минск</p>
+                <p class="text-right">22.02.2023</p>
+            </div>
+            <h2 class="title-medium">Общество с ограниченной ответственность "Insurance Group"</h2>
+            <h2 class="title-medium">(ИНН 7731340252)</h2>
+            <h2 class="title-small"><u>Реестровый номер: 8241</u></h2>
+        </div>
+        <div class="text-left">
+            <p class="text-normal">Самый Главный</p>
+            <p class="text-normal">Самый Главный в Министерстве Финансов</p>
+        </div>
+    </figure>
+    <hr class="divider">
+    <div align="middle">
+        <a href="{% static 'mainapp/pdf/Sertificate.pdf' %}" download="Sertificate.pdf" class="download-link">Сертификат</a>
+    </div>
+{% endblock %}
